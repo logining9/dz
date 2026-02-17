@@ -32,13 +32,31 @@ bool Film::menu() {
 }
 void Film::add() {
 	film newfilm;
-	string name;
+	int status, name;
 	cout << "¬ведите название задачи:" << endl;
 	cin >> name;
 	cout << "¬ведите текст задачи:" << endl;
 	cin >> newfilm.text;
 	cout << "¬ведите дату(срок выполнени€) задачи:" << endl;
 	cin >> newfilm.date;
+	cout << "¬ведите статус задачи(1 - в работе, 2 - выполнена, 3 - отмена):" << endl;
+	cin >> status;
+	switch (status)
+	{
+	case 1:
+		newfilm.status = "в работе";
+		break;
+	case 2:
+		films["выполнена"] = newfilm;
+		newfilm.status = "выполнена";
+		break;
+	case 3:
+		films[" "] = newfilm;
+		newfilm.status = " ";
+		break;
+	default:
+		newfilm.status = "в работе";
+	}
 	films[name] = newfilm;
 }
 void Film::del() {

@@ -8,6 +8,7 @@ private:
 	{
 		string text;
 		string date;
+		string status;
 	};
 	map<string, film> films;
 public:
